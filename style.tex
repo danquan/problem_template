@@ -122,3 +122,108 @@
   \begin{minipage}[t]{\ColBIO}\raggedright\ttfamily\fontsize{10}{12} #2\BottomPad\end{minipage} \\
   \hline
 }
+
+% ================================
+% Contest info + auto overview
+% ================================
+\usepackage{etoolbox}
+
+% ----- Metadata contest -----
+\newcommand{\ContestTitleA}{}
+\newcommand{\ContestTitleB}{}
+\newcommand{\ContestDate}{}
+\newcommand{\ContestDuration}{}
+\newcommand{\ContestIntro}{Hãy lập chương trình giải các bài toán sau đây}
+
+\newcommand{\SetContestInfo}[5]{%
+  \renewcommand{\ContestTitleA}{#1}%
+  \renewcommand{\ContestTitleB}{#2}%
+  \renewcommand{\ContestDate}{#3}%
+  \renewcommand{\ContestDuration}{#4}%
+  \renewcommand{\ContestIntro}{#5}%
+}
+
+\newcommand{\ProblemTableRows}{}
+
+% Mỗi dòng trong bảng tổng quan
+\newcommand{\StoreProblemRow}[3]{%
+  \gappto{\ProblemTableRows}{%
+    #1 & #2 & #3 \\
+    \hline
+  }%
+}
+
+% Ghi metadata vào file aux để lần compile sau đọc lại
+\makeatletter
+
+\newcommand{\WriteProblemToAux}[3]{%
+  \protected@write\@auxout{}%
+    {\string\StoreProblemRow{#1}{#2}{#3}}%
+}
+
+\makeatother
+% Lệnh bạn gọi tại vị trí mỗi bài
+\newcommand{\AddProblem}[3]{%
+  \WriteProblemToAux{#1}{#2}{#3}%
+  \ProblemName{#1. #2}%
+}
+
+% ----- Storage for problem overview rows -----
+% \newcommand{\ProblemTableRows}{}
+% \newcommand{\ClearProblemTable}{%
+%   \global\let\ProblemTableRows\empty
+% }
+
+% % #1 = mã/ số bài, #2 = tên bài, #3 = điểm, #4 = file tex
+% \newcommand{\AddProblem}[4]{%
+%   \gappto{\ProblemTableRows}{%
+%     #1 & #2 & #3 \\
+%     \hline
+%   }%
+%   \ProblemName{#1. #2}%
+% }
+
+% ----- Cover page -----
+% \newcommand{\PrintContestCover}{%
+  % \begin{center}
+  %   \begin{minipage}[t]{0.52\textwidth}
+  %     \centering
+  %       {\fontsize{14}{16}\selectfont \textbf{\ContestTitleA}}\\[0.35em]
+  %       {\fontsize{14}{16}\selectfont \textbf{\ContestTitleB}}\\[0.1em]
+  %     \rule{0.5\linewidth}{0.8pt}
+  %   \end{minipage}
+  %   \hfill
+  %   \begin{minipage}[t]{0.32\textwidth}
+  %     % \raggedleft
+  %     \centering
+  %       {\fontsize{12}{14}\selectfont \textbf{\ContestDate}}\\[0.4em]
+  %       {\fontsize{12}{14}\selectfont \textit{\ContestDuration}}\\[0.1em]
+  %     \rule{0.5\linewidth}{0.8pt}
+  %   \end{minipage}
+  % \end{center}
+
+  % % \vspace{0.5em}
+
+  % \begin{center}
+  %   {\fontsize{14}{16} \textbf{TỔNG QUAN VỀ ĐỀ BÀI}}
+  % \end{center}
+
+  % % \vspace{0.5em}
+
+  % \begin{center}
+  % \begin{tabular}{|c|p{10cm}|c|}
+  %   \hline
+  %   \centering STT & \centering Tên bài\arraybackslash & Điểm \\
+  %   \hline
+  %   \ProblemTableRows
+  % \end{tabular}
+  % \end{center}
+
+  % % \vspace{1.3em}
+  % \hrule height 2pt
+  % % \vspace{0.6em}
+
+  % {\fontsize{12}{14} \textbf{\textit{\ContestIntro}}}
+
+  % \vspace{2em}
+% }
