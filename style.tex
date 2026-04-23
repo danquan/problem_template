@@ -1,0 +1,124 @@
+% ===== Vietnamese (XeLaTeX) =====
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setdefaultlanguage{vietnamese}
+
+\setmainfont{CAMBRIA.TTC}[
+  Path = ./fonts/,
+  BoldFont = CAMBRIAB.TTF,
+  ItalicFont = CAMBRIAI.TTF,
+  BoldItalicFont = CAMBRIAZ.TTF
+]
+
+\usepackage{unicode-math}
+\setmathfont{cambriamath.ttc}[Path=./fonts/]
+
+% \setmonofont{Cascadia Mono}
+\setmonofont{Consolas}[
+  Path=fonts/,
+  Extension=.ttf,
+  UprightFont=consola,
+  BoldFont=consolab,
+  ItalicFont=consolai,
+  BoldItalicFont=consolaz
+]
+
+% ===== Layout / Math =====
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{top=2cm,bottom=2cm,left=2cm,right=2cm}
+
+% Cỡ chữ thường 11pt: đặt ở documentclass
+% \documentclass[11pt]{article}
+
+% Không lùi đầu dòng, cách đoạn 6pt
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+% ===== Tables / Colors =====
+\usepackage{array}
+\usepackage{calc}
+\usepackage[table]{xcolor}
+\definecolor{sampleblue}{HTML}{C0EFFF}
+
+% \setlength{\extrarowheight}{4pt} % tăng đệm trên/dưới cho toàn bộ bảng
+\renewcommand{\arraystretch}{1.25}
+\setlength{\tabcolsep}{6pt}
+\newcommand{\BottomPad}{\rule[-3.5pt]{0pt}{0pt}}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+% ===== Bullets =====
+\usepackage{enumitem}
+\setlist[itemize]{label=--, topsep=2pt, itemsep=2pt, leftmargin=1.6em}
+% \setlist[itemize]{topsep=2pt,itemsep=2pt,leftmargin=1.6em}
+
+% ===== Macros =====
+\newcommand{\ProblemName}[1]{%
+  \noindent{\bfseries\fontsize{14pt}{16pt}\selectfont \MakeUppercase{#1}\par}%
+  \vspace{2pt}%
+}
+
+\newcommand{\Section}[1]{%
+  \vspace{0.1em}%
+  \noindent\textbf{#1:}\;
+}
+
+% ===== Sample table: Input / Output amd Explaination =====
+\newlength{\SampleTableW}
+\setlength{\SampleTableW}{0.75\textwidth}
+
+% trần theo %
+\newlength{\ColA}\setlength{\ColA}{0.24\SampleTableW}
+\newlength{\ColB}\setlength{\ColB}{0.18\SampleTableW}
+\newlength{\ColC}\setlength{\ColC}{\SampleTableW-\ColA-\ColB-6\tabcolsep-4\arrayrulewidth}
+
+\newenvironment{SampleTable}{
+  \begin{center}
+  \begin{tabular}{|p{\ColA}|p{\ColB}|p{\ColC}|}
+    \hline
+    % \rowcolor{sampleblue}
+    \multicolumn{1}{|c|}{Input} &
+    \multicolumn{1}{c|}{Output} &
+    \multicolumn{1}{c|}{Giải thích} \\
+    \hline
+}{
+  \end{tabular}
+  \end{center}
+}
+
+% Input/Output dùng monospace; Giải thích dùng chữ thường.
+\newcommand{\SampleRow}[3]{%
+  \begin{minipage}[t]{\ColA}\raggedright\ttfamily\fontsize{10}{12} #1\BottomPad\end{minipage} &
+  \begin{minipage}[t]{\ColB}\raggedright\ttfamily\fontsize{10}{12} #2\BottomPad\end{minipage} &
+  \begin{minipage}[t]{\ColC}\raggedright\small #3\end{minipage} \\
+  \hline
+}
+
+% ===== Sample table: Input / Output only =====
+\newlength{\SampleTableWIO}
+\setlength{\SampleTableWIO}{0.50\textwidth}
+
+\newlength{\ColAIO}
+\newlength{\ColBIO}
+\setlength{\ColAIO}{0.60\SampleTableWIO} % Input
+\setlength{\ColBIO}{0.40\SampleTableWIO} % Output
+
+\newenvironment{SampleTableIO}{
+  \begin{center}
+  \begin{tabular}{|p{\ColAIO}|p{\ColBIO}|}
+    \hline
+    % \rowcolor{sampleblue}
+    \multicolumn{1}{|c|}{Input} &
+    \multicolumn{1}{c|}{Output} \\
+    \hline
+}{
+  \end{tabular}
+  \end{center}
+}
+
+\newcommand{\SampleRowIO}[2]{%
+  \begin{minipage}[t]{\ColAIO}\raggedright\ttfamily\fontsize{10}{12} #1\BottomPad\end{minipage} &
+  \begin{minipage}[t]{\ColBIO}\raggedright\ttfamily\fontsize{10}{12} #2\BottomPad\end{minipage} \\
+  \hline
+}

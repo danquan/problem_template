@@ -1,0 +1,62 @@
+\ProblemName{Xâu yêu thích và xâu ghét bỏ}
+
+Cuối cùng, giáo sư X cũng cho Y được nghỉ ngơi, hoặc đó là điều Y đã nghĩ.
+Giáo sư có thể để cơ thể Y nghỉ ngơi, nhưng tư duy của Y thì không.
+
+Ông đưa cho Y một xâu $s$ gồm các chữ cái Latin in thường và ký tự \texttt{?},
+cùng với hai xâu $a$ và $b$ lần lượt là xâu yêu thích và xâu ghét bỏ của giáo sư X.
+Nhiệm vụ của Y là thay các ký tự \texttt{?} trong $s$ bằng các chữ cái Latin in thường
+để tạo ra xâu $s'$ sao cho giá trị $A-B$ là lớn nhất có thể, trong đó
+$A$ là số lần xuất hiện của xâu $a$ trong $s'$, và $B$ là số lần xuất hiện của xâu $b$ trong $s'$.
+
+\Section{Yêu cầu}
+Tìm giá trị lớn nhất có thể của $A-B$.
+
+\Section{Dữ liệu}
+Vào từ thiết bị nhập chuẩn:
+\begin{itemize}
+  \item Dòng đầu tiên chứa xâu $s$ ($|s|\le 1000$), gồm các chữ cái Latin in thường và ký tự \texttt{?}.
+  \item Dòng thứ hai chứa xâu $a$ ($|a|\le 50$), chỉ gồm các chữ cái Latin in thường.
+  \item Dòng thứ ba chứa xâu $b$ ($|b|\le 50$), chỉ gồm các chữ cái Latin in thường.
+\end{itemize}
+
+\Section{Kết quả}
+In ra một số nguyên duy nhất là giá trị $A-B$ lớn nhất có thể.
+
+\Section{Ràng buộc}
+
+\Section{Ví dụ}
+
+\begin{SampleTable}
+\SampleRow
+{a?bab??abs\\ab\\ba}
+{2}
+{Y biến xâu $s$ thành ``abbabcdabs''.\\
+Xâu ``ab'' xuất hiện 3 lần.\\
+Xâu ``ba'' xuất hiện 1 lần.}
+
+\SampleRow
+{?????\\dd\\c}
+{4}
+{Y biến xâu $s$ thành ``ddddd''.\\
+Xâu ``dd'' xuất hiện 4 lần.\\
+Xâu ``c'' xuất hiện 0 lần.}
+\end{SampleTable}
+
+\begin{SampleTableIO}
+\SampleRowIO
+{a?bab??abs
+
+ab
+
+ba}
+{2}
+
+\SampleRowIO
+{?????
+
+dd
+
+c}
+{4}
+\end{SampleTableIO}
