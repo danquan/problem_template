@@ -227,3 +227,20 @@
 
   % \vspace{2em}
 % }
+
+\newif\ifshowsource
+\showsourcefalse
+% \showsourcetrue % bật dòng này nếu muốn hiện nguồn khi debug
+
+\newcommand{\SourceNote}[1]{%
+  \ifshowsource
+    {\small\itshape Nguồn: #1\par}
+  \fi
+}
+
+\newcommand{\EndOfExam}{%
+  \vspace{1.5em}
+  \begin{center}
+    {\bfseries\fontsize{14}{16}\selectfont $\sim$ HẾT $\sim$}
+  \end{center}
+}
