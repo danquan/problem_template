@@ -105,7 +105,6 @@
       \multicolumn{1}{c|}{Sample Input} &
       \multicolumn{1}{c|}{Sample Output} &
       \multicolumn{1}{c}{Giải thích} \\
-      \hline
 }{%
     \end{tabular}%
   \end{Sbox}
@@ -122,16 +121,10 @@
 
 % Input/Output dùng monospace; Giải thích dùng chữ thường.
 \newcommand{\SampleRow}[3]{%
+  \hline
   \begin{minipage}[t]{\ColA}\raggedright\ttfamily\fontsize{10}{12}\selectfont #1\BottomPad\end{minipage} &
   \begin{minipage}[t]{\ColB}\raggedright\ttfamily\fontsize{10}{12}\selectfont #2\BottomPad\end{minipage} &
   \begin{minipage}[t]{\ColC}\raggedright\fontsize{10}{12}\selectfont #3\BottomPad\end{minipage} \\
-  \hline
-}
-
-\newcommand{\SampleLastRow}[3]{%
-  \begin{minipage}[t]{\ColA}\raggedright\ttfamily\fontsize{10}{12}\selectfont #1\BottomPad\end{minipage} &
-  \begin{minipage}[t]{\ColB}\raggedright\ttfamily\fontsize{10}{12}\selectfont #2\BottomPad\end{minipage} &
-  \begin{minipage}[t]{\ColC}\raggedright\fontsize{10}{12}\selectfont #3\BottomPad\end{minipage}
 }
 
 % ===== Sample table: Input / Output only =====
@@ -166,7 +159,6 @@
       \rowcolor{sampleblue}
       \multicolumn{1}{c|}{Sample Input} &
       \multicolumn{1}{c}{Sample Output} \\
-      \hline
 }{%
     \end{tabular}%
    \end{Sbox}
@@ -183,23 +175,13 @@
 
 %%%% Dòng thường (có kẻ ngang phía dưới)
 \newcommand{\SampleRowIO}[2]{%
+  \hline
   \begin{minipage}[t]{\ColAIO}
     \raggedright\ttfamily\fontsize{10}{12}\selectfont #1\BottomPad
   \end{minipage} &
   \begin{minipage}[t]{\ColBIO}
     \raggedright\ttfamily\fontsize{10}{12}\selectfont #2\BottomPad
   \end{minipage} \\
-  \hline
-}
-
-%%%% Dòng cuối (KHÔNG có kẻ ngang phía dưới)
-\newcommand{\SampleLastRowIO}[2]{%
-  \begin{minipage}[t]{\ColAIO}
-    \raggedright\ttfamily\fontsize{10}{12}\selectfont #1\BottomPad
-  \end{minipage} &
-  \begin{minipage}[t]{\ColBIO}
-    \raggedright\ttfamily\fontsize{10}{12}\selectfont #2\BottomPad
-  \end{minipage}
 }
 
 
