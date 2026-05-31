@@ -238,7 +238,6 @@
       \multicolumn{1}{c|}{STT} &
       \multicolumn{1}{c|}{Tên bài} &
       \multicolumn{1}{c}{Điểm} \\
-      \hline
 }{%
     \end{tabular}%
   \end{Sbox}
@@ -258,8 +257,8 @@
 % Mỗi dòng trong bảng tổng quan
 \newcommand{\StoreProblemRow}[3]{%
   \gappto{\ProblemTableRows}{%
-    #1 & #2 & #3 \\
     \hline
+    #1 & #2 & #3 \\
   }%
 }
 
