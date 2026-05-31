@@ -9,6 +9,7 @@
   ItalicFont = CAMBRIAI.TTF,
   BoldItalicFont = CAMBRIAZ.TTF
 ]
+% \setmainfont{Times New Roman}
 
 \usepackage{unicode-math}
 \setmathfont{cambriamath.ttc}[Path=./fonts/,FontIndex=1,Script=Math]
@@ -93,8 +94,8 @@
   \begin{Sbox}
     \begin{tabular}{p{\ColA}|p{\ColB}|p{\ColC}}
       \rowcolor{sampleblue}
-      \multicolumn{1}{c|}{Input} &
-      \multicolumn{1}{c|}{Output} &
+      \multicolumn{1}{c|}{Sample Input} &
+      \multicolumn{1}{c|}{Sample Output} &
       \multicolumn{1}{c}{Giải thích} \\
       \hline
 }{%
@@ -218,6 +219,30 @@
   \renewcommand{\ContestDate}{#3}%
   \renewcommand{\ContestDuration}{#4}%
   \renewcommand{\ContestIntro}{#5}%
+}
+
+\newenvironment{ProblemTable}{%
+  \begin{center}
+  \setlength{\arrayrulewidth}{0.7pt}
+  \begin{Sbox}
+    \begin{tabular}{c|p{10cm}|c}
+      \rowcolor{sampleblue}
+      \multicolumn{1}{c|}{STT} &
+      \multicolumn{1}{c|}{Tên bài} &
+      \multicolumn{1}{c}{Điểm} \\
+      \hline
+}{%
+    \end{tabular}%
+  \end{Sbox}
+
+  {\setlength{\fboxsep}{1pt}%
+   \setlength{\fboxrule}{1.3pt}%
+   \fbox{%
+     \setlength{\fboxsep}{0pt}%
+     \setlength{\fboxrule}{0.7pt}%
+     \fbox{\TheSbox}%
+   }}%
+  \end{center}
 }
 
 \newcommand{\ProblemTableRows}{}
