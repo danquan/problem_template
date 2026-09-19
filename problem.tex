@@ -1,63 +1,48 @@
 % AddProblem{Thứ thự bài}{Tên bài}{Điểm số}
-\AddProblem{Bài 1}{Xâu yêu thích và xâu ghét bỏ}{5}
+\AddProblem{Bài 1}{A + B}{5}
 
-Cuối cùng, giáo sư X cũng cho Y được nghỉ ngơi, hoặc đó là điều Y đã nghĩ.
-Giáo sư có thể để cơ thể Y nghỉ ngơi, nhưng tư duy của Y thì không.
-
-Ông đưa cho Y một xâu $s$ gồm các chữ cái Latin in thường và ký tự \texttt{?},
-cùng với hai xâu $a$ và $b$ lần lượt là xâu yêu thích và xâu ghét bỏ của giáo sư X.
-Nhiệm vụ của Y là thay các ký tự \texttt{?} trong $s$ bằng các chữ cái Latin in thường
-để tạo ra xâu $s'$ sao cho giá trị $A-B$ là lớn nhất có thể, trong đó
-$A$ là số lần xuất hiện của xâu $a$ trong $s'$, và $B$ là số lần xuất hiện của xâu $b$ trong $s'$.
+Cho hai số nguyên $A$ và $B$. Nhiệm vụ của bạn là tính tổng của chúng.
 
 \Section{Yêu cầu}
-Tìm giá trị lớn nhất có thể của $A-B$.
+Tìm giá trị của $A + B$.
 
 \Section{Dữ liệu}
 Vào từ thiết bị nhập chuẩn:
 \begin{itemize}
-  \item Dòng đầu tiên chứa xâu $s$ ($|s|\le 1000$), gồm các chữ cái Latin in thường và ký tự \texttt{?}.
-  \item Dòng thứ hai chứa xâu $a$ ($|a|\le 50$), chỉ gồm các chữ cái Latin in thường.
-  \item Dòng thứ ba chứa xâu $b$ ($|b|\le 50$), chỉ gồm các chữ cái Latin in thường.
+  \item Dòng đầu tiên chứa số nguyên $A$ ($0 \le A \le 10^9$).
+  \item Dòng thứ hai chứa số nguyên $B$ ($0 \le B \le 10^9$).
 \end{itemize}
 
 \Section{Kết quả}
-In ra một số nguyên duy nhất là giá trị $A-B$ lớn nhất có thể.
+In ra một số nguyên duy nhất là giá trị của $A + B$.
 
 \Section{Ràng buộc}
+$0 \le A, B \le 10^9$
 
 \Section{Ví dụ}
 
 \begin{SampleTable}
 \SampleRow
-{a?bab??abs\\ab\\ba}
-{2}
-{Y biến xâu $s$ thành ``abbabcdabs''.\\
-Xâu ``ab'' xuất hiện 3 lần.\\
-Xâu ``ba'' xuất hiện 1 lần.}
+{1\\2}
+{3}
+{Tổng của 1 và 2 là 3.}
 
 \SampleRow
-{?????\\dd\\c}
-{4}
-{Y biến xâu $s$ thành ``ddddd''.\\
-Xâu ``dd'' xuất hiện 4 lần.\\
-Xâu ``c'' xuất hiện 0 lần.}
+{10\\20}
+{30}
+{Tổng của 10 và 20 là 30.}
 \end{SampleTable}
 
 \begin{SampleTableIO}
 \SampleRowIO
-{a?bab??abs
+{1
 
-ab
-
-ba}
-{2}
+2}
+{3}
 
 \SampleRowIO
-{?????
+{10
 
-dd
-
-c}
-{4}
+20}
+{30}
 \end{SampleTableIO}

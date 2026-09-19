@@ -40,7 +40,8 @@
 \usepackage{array}
 \usepackage{calc}
 \usepackage[table]{xcolor}
-\definecolor{sampleblue}{HTML}{80e0ff}
+\definecolor{samplecolor}{HTML}{80e0ff}
+% \definecolor{samplecolor}{HTML}{43fa83}
 
 % \setlength{\extrarowheight}{4pt} % tăng đệm trên/dưới cho toàn bộ bảng
 \renewcommand{\arraystretch}{1.25}
@@ -74,6 +75,8 @@
 }
 
 % ===== Sample table: Input / Output amd Explaination =====
+\newcommand{\SampleMinus}{\char"002D}
+
 \newlength{\SampleTableW}
 \setlength{\SampleTableW}{0.75\textwidth}
 
@@ -86,7 +89,7 @@
 %   \begin{center}
 %   \begin{tabular}{|p{\ColA}|p{\ColB}|p{\ColC}|}
 %     \hline
-%     % \rowcolor{sampleblue}
+%     % \rowcolor{samplecolor}
 %     \multicolumn{1}{|c|}{S} &
 %     \multicolumn{1}{c|}{Output} &
 %     \multicolumn{1}{c|}{Giải thích} \\
@@ -101,7 +104,7 @@
   \setlength{\arrayrulewidth}{0.7pt}
   \begin{Sbox}
     \begin{tabular}{p{\ColA}|p{\ColB}|p{\ColC}}
-      \rowcolor{sampleblue}
+      \rowcolor{samplecolor}
       \multicolumn{1}{c|}{Sample Input} &
       \multicolumn{1}{c|}{Sample Output} &
       \multicolumn{1}{c}{Giải thích} \\
@@ -140,7 +143,7 @@
 %   \begin{center}
 %   \begin{tabular}{|p{\ColAIO}|p{\ColBIO}|}
 %     \hline
-%     % \rowcolor{sampleblue}
+%     % \rowcolor{samplecolor}
 %     \multicolumn{1}{|c|}{Input} &
 %     \multicolumn{1}{c|}{Output} \\
 %     \hline
@@ -156,7 +159,7 @@
   \setlength{\arrayrulewidth}{0.7pt}
   \begin{Sbox}
     \begin{tabular}{p{\ColAIO}|p{\ColBIO}}
-      \rowcolor{sampleblue}
+      \rowcolor{samplecolor}
       \multicolumn{1}{c|}{Sample Input} &
       \multicolumn{1}{c}{Sample Output} \\
 }{%
@@ -216,7 +219,7 @@
   \setlength{\arrayrulewidth}{0.7pt}
   \begin{Sbox}
     \begin{tabular}{c|p{10cm}|c}
-      \rowcolor{sampleblue}
+      \rowcolor{samplecolor}
       \multicolumn{1}{c|}{STT} &
       \multicolumn{1}{c|}{Tên bài} &
       \multicolumn{1}{c}{Điểm} \\
