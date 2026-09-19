@@ -75,8 +75,6 @@
 }
 
 % ===== Sample table: Input / Output amd Explaination =====
-\newcommand{\SampleMinus}{\char"002D}
-
 \newlength{\SampleTableW}
 \setlength{\SampleTableW}{0.75\textwidth}
 
@@ -85,49 +83,27 @@
 \newlength{\ColB}\setlength{\ColB}{0.18\SampleTableW}
 \newlength{\ColC}\setlength{\ColC}{\SampleTableW-\ColA-\ColB-6\tabcolsep-4\arrayrulewidth}
 
-% \newenvironment{SampleTable}{
-%   \begin{center}
-%   \begin{tabular}{|p{\ColA}|p{\ColB}|p{\ColC}|}
-%     \hline
-%     % \rowcolor{samplecolor}
-%     \multicolumn{1}{|c|}{S} &
-%     \multicolumn{1}{c|}{Output} &
-%     \multicolumn{1}{c|}{Giải thích} \\
-%     \hline
-% }{
-%   \end{tabular}
-%   \end{center}
-% }
-
-\newenvironment{SampleTable}{%
+\newenvironment{SampleTable}{
   \begin{center}
-  \setlength{\arrayrulewidth}{0.7pt}
-  \begin{Sbox}
-    \begin{tabular}{p{\ColA}|p{\ColB}|p{\ColC}}
-      \rowcolor{samplecolor}
-      \multicolumn{1}{c|}{Sample Input} &
-      \multicolumn{1}{c|}{Sample Output} &
-      \multicolumn{1}{c}{Giải thích} \\
-}{%
-    \end{tabular}%
-  \end{Sbox}
-
-  {\setlength{\fboxsep}{1pt}%
-   \setlength{\fboxrule}{1.3pt}%
-   \fbox{%
-     \setlength{\fboxsep}{0pt}%
-     \setlength{\fboxrule}{0.7pt}%
-     \fbox{\TheSbox}%
-   }}%
+  \setlength{\arrayrulewidth}{1.2pt}
+  \begin{tabular}{|p{\ColA}|p{\ColB}|p{\ColC}|}
+    \hline
+    % \rowcolor{sampleblue}
+    \multicolumn{1}{|c|}{Input} &
+    \multicolumn{1}{c|}{Output} &
+    \multicolumn{1}{c|}{Giải thích} \\
+    \hline
+}{
+  \end{tabular}
   \end{center}
 }
 
 % Input/Output dùng monospace; Giải thích dùng chữ thường.
 \newcommand{\SampleRow}[3]{%
+  \begin{minipage}[t]{\ColA}\raggedright\ttfamily\fontsize{10}{12} #1\BottomPad\end{minipage} &
+  \begin{minipage}[t]{\ColB}\raggedright\ttfamily\fontsize{10}{12} #2\BottomPad\end{minipage} &
+  \begin{minipage}[t]{\ColC}\raggedright\small #3\end{minipage} \\
   \hline
-  \begin{minipage}[t]{\ColA}\raggedright\ttfamily\fontsize{10}{12}\selectfont #1\BottomPad\end{minipage} &
-  \begin{minipage}[t]{\ColB}\raggedright\ttfamily\fontsize{10}{12}\selectfont #2\BottomPad\end{minipage} &
-  \begin{minipage}[t]{\ColC}\raggedright\fontsize{10}{12}\selectfont #3\BottomPad\end{minipage} \\
 }
 
 % ===== Sample table: Input / Output only =====
@@ -139,59 +115,24 @@
 \setlength{\ColAIO}{0.60\SampleTableWIO} % Input
 \setlength{\ColBIO}{0.40\SampleTableWIO} % Output
 
-% \newenvironment{SampleTableIO}{
-%   \begin{center}
-%   \begin{tabular}{|p{\ColAIO}|p{\ColBIO}|}
-%     \hline
-%     % \rowcolor{samplecolor}
-%     \multicolumn{1}{|c|}{Input} &
-%     \multicolumn{1}{c|}{Output} \\
-%     \hline
-% }{
-%   \end{tabular}
-%   \end{center}
-% }
-
-\usepackage{fancybox} % provides \doublebox
-
-\newenvironment{SampleTableIO}{%
+\newenvironment{SampleTableIO}{
   \begin{center}
-  \setlength{\arrayrulewidth}{0.7pt}
-  \begin{Sbox}
-    \begin{tabular}{p{\ColAIO}|p{\ColBIO}}
-      \rowcolor{samplecolor}
-      \multicolumn{1}{c|}{Sample Input} &
-      \multicolumn{1}{c}{Sample Output} \\
-}{%
-    \end{tabular}%
-   \end{Sbox}
-
-  {\setlength{\fboxsep}{1pt}%
-   \setlength{\fboxrule}{1.3pt}%
-   \fbox{%
-     \setlength{\fboxsep}{0pt}%
-     \setlength{\fboxrule}{0.7pt}%
-     \fbox{\TheSbox}%
-   }}%
+  \setlength{\arrayrulewidth}{1.2pt}
+  \begin{tabular}{|p{\ColAIO}|p{\ColBIO}|}
+    \hline
+    % \rowcolor{sampleblue}
+    \multicolumn{1}{|c|}{Input} &
+    \multicolumn{1}{c|}{Output} \\
+    \hline
+}{
+  \end{tabular}
   \end{center}
 }
 
-%%%% Dòng thường (có kẻ ngang phía dưới)
 \newcommand{\SampleRowIO}[2]{%
-  \hline
-  \begin{minipage}[t]{\ColAIO}
-    \raggedright\ttfamily\fontsize{10}{12}\selectfont #1\BottomPad
-  \end{minipage} &
-  \begin{minipage}[t]{\ColBIO}
-    \raggedright\ttfamily\fontsize{10}{12}\selectfont #2\BottomPad
-  \end{minipage} \\
-}
-
-
-% Dòng cuối (không kẻ ngang phía dưới để không chồng lên viền kép ngoài)
-\newcommand{\SampleRowIOLast}[2]{%
   \begin{minipage}[t]{\ColAIO}\raggedright\ttfamily\fontsize{10}{12} #1\BottomPad\end{minipage} &
   \begin{minipage}[t]{\ColBIO}\raggedright\ttfamily\fontsize{10}{12} #2\BottomPad\end{minipage} \\
+  \hline
 }
 
 % ================================
@@ -216,7 +157,7 @@
 
 \newenvironment{ProblemTable}{%
   \begin{center}
-  \setlength{\arrayrulewidth}{0.7pt}
+  \setlength{\arrayrulewidth}{1.2pt}
   \begin{Sbox}
     \begin{tabular}{c|p{10cm}|c}
       \rowcolor{samplecolor}
@@ -242,8 +183,8 @@
 % Mỗi dòng trong bảng tổng quan
 \newcommand{\StoreProblemRow}[3]{%
   \gappto{\ProblemTableRows}{%
-    \hline
     #1 & #2 & #3 \\
+    \hline
   }%
 }
 

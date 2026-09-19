@@ -4,16 +4,16 @@
   {Ngày chờ tháng nhớ năm mong}
   {Thời gian vô hạn phút}
   {Hãy lập chương trình giải các bài toán sau đây}
-    
+
   \begin{center}
-    \begin{minipage}[t]{0.42\textwidth}
+    \begin{minipage}[t]{0.35\textwidth}
       \centering
         {\fontsize{14}{16}\selectfont \textbf{\ContestTitleA}}\\[0.35em]
         {\fontsize{14}{16}\selectfont \textbf{\ContestTitleB}}\\[0.1em]
       \rule{0.5\linewidth}{0.8pt}
     \end{minipage}
     \hfill
-    \begin{minipage}[t]{0.36\textwidth}
+    \begin{minipage}[t]{0.35\textwidth}
       % \raggedleft
       \centering
         {\fontsize{12}{14}\selectfont \textbf{\ContestDate}}\\[0.4em]
@@ -30,14 +30,20 @@
 
   % \vspace{0.5em}
 
-    \begin{ProblemTable}
-      \ProblemTableRows
-    \end{ProblemTable}
+  \begin{center}
+  \setlength{\arrayrulewidth}{1.2pt}
+  \begin{tabular}{|c|p{10cm}|c|}
+    \hline
+    \centering STT & \centering Tên bài\arraybackslash & Điểm \\
+    \hline
+    \ProblemTableRows
+  \end{tabular}
+  \end{center}
 
   % \vspace{1.3em}
   \hrule height 2pt
   % \vspace{0.6em}
 
-  {\fontsize{12}{14} \textit{\ContestIntro}}
+  {\fontsize{12}{14} \textbf{\textit{\ContestIntro}}}
 
 \vspace{2em}
