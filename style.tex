@@ -41,7 +41,25 @@
 \usepackage{calc}
 \usepackage[table]{xcolor}
 \definecolor{samplecolor}{HTML}{80e0ff}
-% \definecolor{samplecolor}{HTML}{43fa83}
+% ===== Watermark logo =====
+\usepackage{tikz}
+\usepackage{eso-pic}
+
+% Giá trị mặc định, main.tex có thể ghi đè bằng cách định nghĩa trước \input{style.tex}
+\providecommand{\WatermarkWidth}{0.55\paperwidth}
+\providecommand{\WatermarkOpacity}{0.10}
+
+% Chỉ bật watermark nếu main.tex có định nghĩa \WatermarkLogo
+\AtBeginDocument{%
+  \ifdefined\WatermarkLogo
+    \AddToShipoutPictureBG{%
+      \begin{tikzpicture}[remember picture, overlay]
+        \node[opacity=\WatermarkOpacity] at (current page.center)
+          {\includegraphics[width=\WatermarkWidth]{\WatermarkLogo}};
+      \end{tikzpicture}%
+    }%
+  \fi
+}
 
 % \setlength{\extrarowheight}{4pt} % tăng đệm trên/dưới cho toàn bộ bảng
 \renewcommand{\arraystretch}{1.25}
@@ -181,9 +199,9 @@
 \newcommand{\ProblemTableRows}{}
 
 % Mỗi dòng trong bảng tổng quan
-\newcommand{\StoreProblemRow}[3]{%
+\newcommand{\StoreProblemRow}[4]{%
   \gappto{\ProblemTableRows}{%
-    #1 & #2 & #3 \\
+    #1 & #2 & #3 & #4 \\
     \hline
   }%
 }
@@ -191,16 +209,16 @@
 % Ghi metadata vào file aux để lần compile sau đọc lại
 \makeatletter
 
-\newcommand{\WriteProblemToAux}[3]{%
+\newcommand{\WriteProblemToAux}[4]{%
   \protected@write\@auxout{}%
-    {\string\StoreProblemRow{#1}{\MakeUppercase{#2}}{#3}}%
+    {\string\StoreProblemRow{#1}{\MakeUppercase{#2}}{#4}{#3}}%
 }
 
 \makeatother
 % Lệnh bạn gọi tại vị trí mỗi bài
-\newcommand{\AddProblem}[3]{%
-  \WriteProblemToAux{#1}{#2}{#3}%
-  \ProblemName{#1. #2}%
+\newcommand{\AddProblem}[4]{%
+  \WriteProblemToAux{#1}{#2}{#3}{#4}%
+  \ProblemName{#1. #2 (#4)}%
 }
 
 % ----- Storage for problem overview rows -----
